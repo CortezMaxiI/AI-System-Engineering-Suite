@@ -1,0 +1,17 @@
+﻿{
+    "Timestamp":  "2026-01-23 21:44:28",
+    "DecisionId":  "f12e2fcc-2e88-4118-ba03-9308c75dc3c6",
+    "Before":  {
+                   "AvgCpuLoad_Percent":  2,
+                   "AvailableMemory_MB":  945
+               },
+    "After":  {
+                  "AvgCpuLoad_Percent":  5,
+                  "AvailableMemory_MB":  990
+              },
+    "Diff":  {
+                 "MemoryAvailableDelta_MB":  45,
+                 "CpuUsageDelta":  3
+             },
+    "Strategy":  "Recovery Mode (Safe Baseline)"
+}

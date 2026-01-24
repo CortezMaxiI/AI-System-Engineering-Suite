@@ -1,0 +1,42 @@
+﻿{
+    "Timestamp":  "2026-01-23 21:44:25",
+    "Hardware":  {
+                     "FreeRAM_GB":  0.92,
+                     "Cores":  6,
+                     "TotalRAM_GB":  7.89,
+                     "MaxClockSpeedMHz":  4000,
+                     "GPU":  "NVIDIA GeForce RTX 3070",
+                     "CPU":  "AMD Ryzen 5 1600 Six-Core Processor            "
+                 },
+    "Software":  {
+                     "OS":  "Microsoft Windows 11 IoT Enterprise LTSC Evaluation (10.0.26100)",
+                     "PowerPlan":  "Ultimate Performance"
+                 },
+    "TopProcesses":  [
+                         {
+                             "Name":  "chrome",
+                             "CPU":  1720.84375,
+                             "Id":  10308
+                         },
+                         {
+                             "Name":  "System",
+                             "CPU":  1610.515625,
+                             "Id":  4
+                         },
+                         {
+                             "Name":  "chrome",
+                             "CPU":  909.359375,
+                             "Id":  11416
+                         },
+                         {
+                             "Name":  "MsMpEng",
+                             "CPU":  697.328125,
+                             "Id":  3104
+                         },
+                         {
+                             "Name":  "Antigravity",
+                             "CPU":  686.109375,
+                             "Id":  4200
+                         }
+                     ]
+}

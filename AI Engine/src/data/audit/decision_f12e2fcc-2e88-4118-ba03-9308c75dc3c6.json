@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-01-23T21:44:25.269213",
+  "decision_id": "f12e2fcc-2e88-4118-ba03-9308c75dc3c6",
+  "status": "fallback",
+  "model_metadata": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "prompt_version": "fallback_v1"
+  },
+  "decision": {
+    "decision_id": "f12e2fcc-2e88-4118-ba03-9308c75dc3c6",
+    "strategy": "Recovery Mode (Safe Baseline)",
+    "confidence_score": 1.0,
+    "risk_level": "low",
+    "prompt_version": "fallback_v1",
+    "reasoning": "AI Engine Fallback activated. Reason: api_error (OPTIMAX_API_KEY environment variable is not set.). Applying safest possible state.",
+    "actions": [
+      {
+        "type": "clear_temp_files",
+        "risk": "low",
+        "impact": "low"
+      }
+    ],
+    "fallback_meta": {
+      "error": "OPTIMAX_API_KEY environment variable is not set.",
+      "reason_code": "api_error",
+      "timestamp": "2026-01-23T21:44:25.269213"
+    }
+  },
+  "context_snapshot": {
+    "Timestamp": "2026-01-23 21:44:25",
+    "Hardware": {
+      "FreeRAM_GB": 0.92,
+      "Cores": 6,
+      "TotalRAM_GB": 7.89,
+      "MaxClockSpeedMHz": 4000,
+      "GPU": "NVIDIA GeForce RTX 3070",
+      "CPU": "AMD Ryzen 5 1600 Six-Core Processor            "
+    },
+    "Software": {
+      "OS": "Microsoft Windows 11 IoT Enterprise LTSC Evaluation (10.0.26100)",
+      "PowerPlan": "Ultimate Performance"
+    },
+    "TopProcesses": [
+      {
+        "Name": "chrome",
+        "CPU": 1720.84375,
+        "Id": 10308
+      },
+      {
+        "Name": "System",
+        "CPU": 1610.515625,
+        "Id": 4
+      },
+      {
+        "Name": "chrome",
+        "CPU": 909.359375,
+        "Id": 11416
+      },
+      {
+        "Name": "MsMpEng",
+        "CPU": 697.328125,
+        "Id": 3104
+      },
+      {
+        "Name": "Antigravity",
+        "CPU": 686.109375,
+        "Id": 4200
+      }
+    ]
+  }
+}

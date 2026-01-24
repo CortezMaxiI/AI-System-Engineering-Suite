@@ -1,0 +1,4 @@
+{"timestamp": "2026-01-20T23:01:06.107368", "decision_id": "0296d854-d6e5-4b05-b436-97a31425a02a", "failure_stage": "ai_decision", "error_type": "ValueError", "error_message": "OPTIMAX_API_KEY environment variable is not set."}
+{"timestamp": "2026-01-20T23:06:29.394605", "decision_id": "f6176813-06c7-446c-b886-be143a7d0274", "failure_stage": "ai_decision", "error_type": "ValueError", "error_message": "OPTIMAX_API_KEY environment variable is not set."}
+{"timestamp": "2026-01-21T00:11:20.472538", "decision_id": "fe84a1f7-359e-4579-9324-1f45cd5c5009", "failure_stage": "ai_decision", "error_type": "ValueError", "error_message": "OPTIMAX_API_KEY environment variable is not set."}
+{"timestamp": "2026-01-23T21:44:25.269739", "decision_id": "f12e2fcc-2e88-4118-ba03-9308c75dc3c6", "failure_stage": "ai_decision", "error_type": "ValueError", "error_message": "OPTIMAX_API_KEY environment variable is not set."}
