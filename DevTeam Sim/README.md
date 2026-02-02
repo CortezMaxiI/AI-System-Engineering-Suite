@@ -1,76 +1,102 @@
-### 🎯 Visión General
-**DevTeam Sim** es un motor de simulación conceptual diseñado para modelar la dinámica de toma de decisiones en entornos de ingeniería de software. A diferencia de las herramientas de gestión tradicionales, este sistema se centra en el **pensamiento sistémico**, la **causalidad técnica** y la **gestión de conflictos** entre agentes de IA con intereses contrapuestos y sesgos persistentes.
+DevTeam Sim is a conceptual simulation engine designed to model decision-making dynamics in real-world software engineering environments.
+Unlike traditional management tools, it focuses on systems thinking, technical causality, and conflict management between AI agents with opposing incentives and persistent cognitive biases.
 
-### ⚠️ El Problema
-En la ingeniería de software profesional, el fallo técnico rara vez es causado solo por el código. Es impulsado por **dinámicas sistémicas fallidas**. Las decisiones se toman bajo presión, con prioridades en conflicto y bajo el peso de la deuda técnica previa. Las herramientas convencionales (Jira, GitHub) rastrean *qué* se hace, pero fallan en modelar *cómo* los atajos de hoy restringen las opciones del mañana.
+⚠️ The Problem
 
-### 🧩 Qué es (y qué NO es)
-| ✅ Qué es | ❌ Qué NO es |
-| :--- | :--- |
-| Un motor de simulación de estado cognitivo | Un gestor de proyectos (no reemplaza a Jira) |
-| Un framework de agentes de IA con sesgos | Un generador de código o "AI Developer" |
-| Un modelo de trazabilidad de causalidad técnica | Una herramienta de automatización o CI/CD |
-| Una herramienta para entrenar el juicio técnico | Una demo genérica de chatbot |
+In professional software engineering, failures are rarely caused by code alone.
+They emerge from broken systemic dynamics: decisions made under pressure, conflicting priorities, and the accumulated weight of technical debt.
 
-### 🏛️ Arquitectura Conceptual
-El sistema se basa en una separación estricta de responsabilidades para garantizar la integridad causal:
+Conventional tools (Jira, GitHub) track what gets done — but fail to model how today’s shortcuts constrain tomorrow’s options.
 
-#### 1. Motor de Estado (Núcleo Determinista)
-La salud del proyecto se representa mediante un vector de estado de 4 dimensiones:
-```python
-S = { 
-    "Deuda Técnica", # Acumulación de decisiones subóptimas
-    "Moral del Equipo", # Multiplicador de rendimiento y retención
-    "Riesgo",         # Probabilidad de fallos catastróficos
-    "Progreso"        # Finalización de objetivos del escenario
+🧩 What It Is (and What It Is Not)
+✅ What it is	❌ What it is not
+A cognitive state simulation engine	A project management tool (does not replace Jira)
+An AI agent framework with persistent biases	A code generator or “AI developer”
+A technical causality traceability model	A CI/CD or automation system
+A tool for training engineering judgment	A generic chatbot demo
+🏛️ Conceptual Architecture
+
+The system is built around a strict separation of responsibilities to preserve causal integrity.
+
+1. State Engine (Deterministic Core)
+
+Project health is represented as a 4-dimensional state vector:
+
+S = {
+    "Technical Debt",   # Accumulation of suboptimal decisions
+    "Team Morale",      # Performance and retention multiplier
+    "Risk",             # Probability of systemic failure
+    "Progress"          # Scenario goal completion
 }
-```
 
-#### 2. Agentes Cognitivos (Capa de Fricción)
-Cada agente es una entidad de IA especializada con una función de utilidad única y sesgos cognitivos persistentes:
-*   **Tech Lead**: Optimiza estabilidad y mínima Deuda Técnica.
-*   **Product Manager**: Optimiza Progreso y velocidad de entrega.
-*   **Dev Pragmático**: Optimiza simplicidad de implementación y reducción de esfuerzo inmediato.
+2. Cognitive Agents (Friction Layer)
 
-#### 3. Modelo de Decisión y Consecuencia
-El motor impone un **Principio de Trade-off Obligatorio**: Si una decisión mejora una métrica, debe afectar negativamente a otra, ya sea de forma directa o mediante **Eventos Latentes** (consecuencias diferidas).
+Each agent is a specialized AI entity with a unique utility function and persistent cognitive biases:
 
-### 🔄 El Bucle Agéntico (Agentic Loop)
-El sistema opera en ciclos discretos donde el estado evoluciona mediante la interacción de las decisiones humanas y la fricción de los agentes.
+Tech Lead → Optimizes stability and minimal technical debt
 
-1.  **Presentación de Estado (S_t)**: El usuario recibe las métricas actuales y los eventos latentes activos.
-2.  **Fricción Cognitiva (Debate)**: Los agentes exponen sus posturas. El Tech Lead advierte sobre la deuda; el PM presiona por el deadline.
-3.  **Intervención Humana**: El usuario toma una decisión consciente de los trade-offs.
-4.  **Impacto Causal**: El motor aplica los cambios al estado y evalúa la activación de consecuencias diferidas.
-5.  **Nuevo Estado (S_t+1)**: Se actualizan las métricas y comienza un nuevo ciclo.
+Product Manager → Optimizes delivery speed and progress
 
-### 📂 Cómo leer el proyecto
-Este repositorio se estructura como una auditoría técnica y especificación de diseño:
-1.  **[01_SRS_DevTeam_Sim.MD](./docs/01_SRS_DevTeam_Sim.MD)**: Visión, alcance y bases matemáticas.
-2.  **[02_DESIGN_DECISIONS.md](./docs/02_DESIGN_DECISIONS.md)**: Resolución de ambigüedades estructurales y restricciones de escala.
-3.  **[03_COGNITIVE_AGENTS.md](./docs/03_COGNITIVE_AGENTS.md)**: Análisis profundo de comportamientos, sesgos y memoria relacional.
-4.  **[04_STATE_TRANSITION_MODEL.md](./docs/04_STATE_TRANSITION_MODEL.md)**: Lógica causal que gobierna impactos directos y triggers latentes.
-5.  **[05_PORTFOLIO_PRESENTATION.md](./docs/05_PORTFOLIO_PRESENTATION.md)**: Caso de estudio para reclutadores y líderes técnicos.
+Pragmatic Developer → Optimizes implementation simplicity and short-term effort reduction
 
-### 🚀 Qué demuestra el proyecto
-*   **Diseño de Sistemas**: Capacidad para modelar sistemas no lineales y causalidad técnica.
-*   **Arquitectura de Agentes de IA**: Diseño de prompts que fuerzan consistencia, fricción y "personalidad" sobre la complacencia típica de los LLM.
-*   **Pensamiento Crítico**: Profunda comprensión de los trade-offs que definen el liderazgo de ingeniería en el mundo real.
+3. Decision & Consequence Model
 
----
+The engine enforces a Mandatory Trade-off Principle:
+If a decision improves one metric, it must negatively impact another — either directly or through Latent Events (delayed consequences).
 
-### 📍 Project Status / Estado del Proyecto
-**Concept & Design Phase (Complete)**. This project is currently a formal architectural and cognitive design specification. Implementation of the execution engine and Agent API is out of the current scope.
+🔄 Agentic Loop
 
-**Fase de Concepto y Diseño (Completada)**. Este proyecto es actualmente una especificación formal de diseño arquitectónico y cognitivo. La implementación del motor de ejecución y la API de Agentes está fuera del alcance actual.
+The system operates in discrete cycles where state evolves through human decisions and agent friction.
 
-### ✒️ Author / Autor
-**[Maxi]** - *AI Systems Architect & Software Engineer*
+State Presentation (Sₜ)
+The user receives current metrics and active latent events.
 
----
+Cognitive Friction (Debate)
+Agents argue their positions (Tech Lead warns about debt, PM pushes deadlines).
 
-### 📝 Final Note
-> **Notice**: This project is a documentation-driven design exercise. It demonstrates senior-level skills in system modeling, AI agent strategy, and technical writing. No functional code is provided as the intent is to showcase the **conceptual foundation and architectural rigor** required to build complex AI-driven simulations.
->
-> **Nota**: Este proyecto es un ejercicio de diseño basado en documentación. Demuestra habilidades de nivel senior en modelado de sistemas, estrategia de agentes de IA y redacción técnica. No se proporciona código funcional, ya que la intención es mostrar la **base conceptual y el rigor arquitectónico** necesarios para construir simulaciones complejas impulsadas por IA.
+Human Intervention
+The user makes an explicit trade-off decision.
 
+Causal Impact
+The engine applies state changes and evaluates deferred consequences.
+
+New State (Sₜ₊₁)
+Metrics update and the next cycle begins.
+
+📂 How to Read the Project
+
+This repository is structured as a technical audit and formal design specification:
+
+01_SRS_DevTeam_Sim.md — Vision, scope, and modeling foundations
+
+02_DESIGN_DECISIONS.md — Structural constraints and ambiguity resolution
+
+03_COGNITIVE_AGENTS.md — Deep analysis of agent behavior, bias, and memory
+
+04_STATE_TRANSITION_MODEL.md — Direct impacts and latent trigger logic
+
+05_PORTFOLIO_PRESENTATION.md — Case study for recruiters and technical leadership
+
+🚀 What This Project Demonstrates
+
+Systems Design — Modeling non-linear systems and technical causality
+
+AI Agent Architecture — Prompt and agent design that enforces friction over compliance
+
+Engineering Judgment — Deep understanding of trade-offs defining real-world technical leadership
+
+📍 Project Status
+
+Concept & Design Phase (Complete)
+This project is a formal architectural and cognitive design specification.
+Implementation of the execution engine and Agent API is intentionally out of scope.
+
+✒️ Author
+
+Maxi — AI Systems Architect & Software Engineer
+
+📝 Final Note
+
+Notice: This is a documentation-driven design project.
+It demonstrates senior-level capabilities in system modeling, AI agent strategy, and technical writing.
+No executable code is provided — the goal is to showcase the conceptual foundation and architectural rigor required to build complex AI-driven simulations.
