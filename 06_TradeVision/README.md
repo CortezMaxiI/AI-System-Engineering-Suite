@@ -1,59 +1,105 @@
-👁️ OptiMax TradeVision: Agentic Financial Module v2.1
-TradeVision es un sistema híbrido de análisis y trading de alta frecuencia diseñado para el ecosistema OptiMax. Separa el "Músculo" (C#) del "Cerebro" (Python), logrando una ejecución de baja latencia con razonamiento agéntico avanzado.
+👁️ OptiMax TradeVision — Agentic Financial Module v2.1
+TradeVision is a hybrid high-frequency analysis and trading system designed for the OptiMax ecosystem.
+ It enforces a strict separation between execution (Muscle) and reasoning (Brain), enabling low-latency operation combined with advanced agentic decision-making.
 
-🏗️ Arquitectura de Alto Nivel
-TradeVision utiliza una arquitectura desacoplada mediante un Neural Link (ZeroMQ), garantizando máximo rendimiento y modularidad.
-🦾 El Músculo: TradeVision.DataBridge (C#)
-Rol: Ingestión de datos en tiempo real desde el WebSocket de Binance.
-Lógica: Basado en Luna Predator. Usa System.Net.WebSockets para una conexión asíncrona de alto flujo.
-ZeroMQ PUB: Actúa como Publisher, enviando datos crudos a un socket IPC (tcp://127.0.0.1:5555).
-🧠 El Cerebro: TradeAnalystAgent (Python)
-Rol: Toma de decisiones agéntica y procesamiento de señales.
-Arquitectura de Capas (v2.1): Procesa el flujo de datos mediante un motor de consenso de tres niveles.
+🏗️ High-Level Architecture
+TradeVision is built on a fully decoupled architecture using a Neural Link (ZeroMQ) to maximize performance, modularity, and fault isolation.
 
-🔬 Motor de Consenso (Three-Layer Engine)
-A diferencia de los bots simples, TradeVision v2.1 utiliza una Arquitectura de Confluencia Real para eliminar señales falsas:
-Capa 1: Análisis Técnico Pro: Calcula RSI (14) y EMAs (20/200) para detectar tendencias y zonas de agotamiento.
-Capa 2: Inteligencia de Noticias (Real-time): Conectada a la API de CryptoPanic. El agente escanea titulares globales en tiempo real buscando eventos macro (ETFs, Hacks, Fed).
-Capa 3: Filtro de Riesgo (News-Lock): * Si la técnica dice "BUY" pero el sentimiento es NEGATIVO, el agente bloquea la operación.
-Incluye el titular de la noticia relevante en la alerta final para total transparencia.
-
-🛠️ Stack Tecnológico
-Componente
-Tecnología
-Ingestion Core
-.NET 8.0 / C#
-IPC Link
-NetMQ / pyzmq (ZeroMQ)
-Reasoning Engine
-Python 3.11+ (Pandas-TA)
-News Intelligence
-CryptoPanic API (Real-time)
-Persistence
-Supabase (PostgreSQL)
-Alerts
-Telegram Bot API (Español)
+🦾 The Muscle — TradeVision.DataBridge (C# / .NET 8)
+Role:
+ Real-time market data ingestion from Binance WebSocket feeds.
+Details:
+Asynchronous, high-throughput pipeline based on Luna Predator principles
 
 
-🚀 Guía Operativa
-📋 Requisitos Previos
-.NET 8.0 SDK.
-Python 3.11+ con dependencias: pip install pandas pandas-ta requests pyzmq.
-Variables de Entorno (.env):
-Fragmento de código
-SUPABASE_URL=tu_url
-SUPABASE_KEY=tu_key
-TELEGRAM_TOKEN=tu_token
-TELEGRAM_CHAT_ID=tu_id
-CRYPTOPANIC_TOKEN=tu_token_real
+Uses System.Net.WebSockets for low-latency streaming
+
+
+Publishes raw tick data via ZeroMQ PUB over IPC
+ (tcp://127.0.0.1:5555)
 
 
 
-📊 Observabilidad y Persistencia
-Cada decisión se guarda en Supabase e incluye:
-Signal: BUY / SELL / HOLD.
-Confidence: Fuerza del consenso (0% - 100%).
-Reasoning: Explicación humana (Ej: "RSI 30 + News Sentiment Positivo (ETF Approval)").
+🧠 The Brain — TradeAnalystAgent (Python)
+Role:
+ Agentic reasoning, signal processing, and decision validation.
+v2.1 Layered Architecture:
+ Market data is processed through a three-layer consensus engine designed to eliminate false positives and prevent blind automation.
+
+🔬 Three-Layer Consensus Engine
+Unlike conventional bots, TradeVision v2.1 implements Real Confluence Architecture:
+Layer 1 — Advanced Technical Analysis
+RSI (14)
+
+
+EMA (20 / 200)
+
+
+Trend detection and exhaustion zones
+
+
+Layer 2 — Real-Time News Intelligence
+Live integration with CryptoPanic API
+
+
+Continuous scanning of global macro events
+ (ETFs, exploits, regulatory actions, central banks)
+
+
+Layer 3 — Risk Filter (News-Lock)
+If technical signals indicate BUY but news sentiment is negative, execution is blocked
+
+
+The triggering news headline is attached to the final alert for full transparency
+
+
+
+🛠️ Technology Stack
+Execution Core: .NET 8 / C#
+
+
+IPC: NetMQ / pyzmq (ZeroMQ)
+
+
+Reasoning Engine: Python 3.11+ (Pandas-TA)
+
+
+News Intelligence: CryptoPanic API (real-time)
+
+
+Persistence: Supabase (PostgreSQL)
+
+
+Alerts: Telegram Bot API (Spanish)
+
+
+
+📊 Observability & Traceability
+Every decision is persisted and auditable, including:
+Signal: BUY / SELL / HOLD
+
+
+Confidence: Consensus strength (0–100%)
+
+
+Reasoning: Human-readable explanation
+ (e.g., “RSI 30 + Positive ETF-related News Sentiment”)
+
+
+
+⚠️ Engineering Philosophy
+Execution is never blind
+
+
+Risk awareness > raw speed
+
+
+Every action must be explainable, traceable, and reviewable
+
+
+
+
 Telegram: Notificaciones detalladas en español con el titular de la noticia que influyó en el trade.
 
 Optimax Suite - TradeVision Module v2.1 (News Intelligence Active)
+
