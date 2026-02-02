@@ -1,37 +1,36 @@
-# 🛡️ Guardian — AI-Assisted SRE First Responder
+🛡️ Guardian — AI-Assisted SRE First Responder
 
-![SRE](https://img.shields.io/badge/Role-AI--Assisted%20SRE-blue)
-![Python](https://img.shields.io/badge/Python-3.10%2B-green)
-![Design](https://img.shields.io/badge/Design-Safety--First-red)
 
-**Guardian** es un sistema experimental de observabilidad activa y respuesta asistida por IA, diseñado como un *primer respondiente* ante fallos de infraestructura.
 
-El proyecto está construido bajo una filosofía central:
 
-> **“Proteger, no automatizar a ciegas.”**
 
-Guardian no ejecuta acciones de forma autónoma.  
-Observa, razona, simula y **solicita validación humana** antes de cualquier cambio.
 
----
+Guardian is an experimental AI-assisted observability and response system designed as a first responder for infrastructure failures.
 
-## 🎯 Objetivo del Proyecto
+The project is built around a single core principle:
 
-Reducir la brecha entre:
-- la detección de un fallo crítico  
-- y la intervención humana calificada  
+“Protect — do not blindly automate.”
 
-proporcionando **diagnósticos explicables**, **simulaciones seguras** y **propuestas de mitigación verificadas**.
+Guardian never executes actions autonomously.
+It observes, reasons, simulates, and requires explicit human validation before any change is applied.
 
-Este proyecto prioriza **criterio, seguridad y trazabilidad** por sobre la automatización agresiva.
+🎯 Project Objective
 
----
+Reduce the gap between:
 
-## ⛓️ The Decision Chain
+detection of a critical infrastructure failure
 
-Guardian sigue un camino riguroso desde que detecta un problema hasta que propone una solución. Cada paso es verificable y auditable.
+and qualified human intervention
 
-```mermaid
+by providing explainable diagnostics, safe simulations, and verified mitigation proposals.
+
+This project prioritizes judgment, safety, and traceability over aggressive automation.
+
+⛓️ The Decision Chain
+
+Guardian follows a strict, auditable path from anomaly detection to proposed resolution.
+Every step is verifiable and traceable.
+
 graph TD
     A[🚨 Anomaly Detected] --> B[🧠 Brain Analysis]
     B --> C[📝 Mitigation Plan]
@@ -41,69 +40,91 @@ graph TD
     E --> G[🧑‍💻 Human Validation]
     G -- Approved --> H[🚀 Production Execution]
     G -- Rejected --> I[⏹️ Aborted]
-```
 
-1.  **Anomaly**: Detección de patrones irregulares en logs o métricas.
-2.  **Reasoning**: La IA genera una hipótesis de causa raíz y un plan.
-3.  **Simulation**: Se prueba el comando en un entorno espejo aislado.
-4.  **SimulationResult**: Solo si el resultado es 100% satisfactorio, se procede.
 
----
+Flow explanation:
 
-## 🧠 Filosofía de Diseño
+Anomaly — Detection of irregular patterns in logs or metrics
 
-- La IA **no es autoridad**
-- Ninguna acción puede ejecutarse sin **simulación previa**
-- El humano siempre tiene la **decisión final**
-- El sistema explica:
-  - qué detectó  
-  - qué razonó  
-  - qué probó  
-  - y con qué resultado  
+Reasoning — AI generates a root cause hypothesis and mitigation plan
 
-Guardian está pensado como un **copiloto SRE**, no como un bot de ejecución.
+Simulation — Proposed actions are tested in an isolated mirror environment
 
----
+Simulation Result — Only a 100% successful simulation allows progression
 
-## 🔐 Security Gate: The Core Pillar
+🧠 Design Philosophy
 
-El sistema implementa un **Security Gate obligatorio** mediante decoradores de Python. Esta es la característica principal de seguridad que garantiza la filosofía de "Proteger, no Controlar".
+AI is not an authority
 
-### Cómo funciona:
-- **Validación Forzada**: El método de ejecución en producción está decorado con `@require_simulation`.
-- **Bloqueo Activo**: Si un plan llega a la fase de ejecución sin haber pasado por el **Sandbox** o si el `SimulationResult` es negativo, el sistema bloquea el hilo de ejecución automáticamente.
-- **Inmutable**: Esta regla está integrada a nivel de código, evitando errores humanos de omisión.
+No action can be executed without prior simulation
 
----
+Humans always retain final control
 
-## 🧩 Arquitectura del Sistema
+The system explains:
 
-Guardian está dividido en módulos independientes, cada uno con una responsabilidad clara:
+what it detected
 
-### 👁️ Observer
-- Monitorea eventos (logs/alertas – mock en el MVP)
-- Detecta anomalías y las normaliza en un objeto `Anomaly`.
+what it reasoned
 
-### 🧠 Brain
-- Analiza la anomalía y genera una hipótesis de causa raíz.
-- Propone un `MitigatedPlan` con comandos específicos y niveles de riesgo.
+what it tested
 
-### 🧪 Sandbox
-- Simula la acción propuesta en un entorno aislado.
-- Valida configuraciones y checks de salud antes de reportar.
+and the resulting outcome
 
-### 🧑‍💻 Interface
-- Presenta el razonamiento completo al humano
-- Solicita aprobación explícita antes de cualquier ejecución
+Guardian is designed as an SRE co-pilot, not an execution bot.
 
----
+🔐 Security Gate — Core Pillar
 
-## ▶️ Ejecución del MVP
+Guardian enforces a mandatory Security Gate implemented through Python decorators.
+This mechanism is the backbone of its safety model.
 
-```bash
-# Instalar dependencias
+How it works:
+
+Forced Validation — Production execution methods are decorated with @require_simulation
+
+Active Blocking — If a plan reaches execution without passing the Sandbox, or if the SimulationResult is negative, execution is automatically blocked
+
+Immutable by Design — This rule is enforced at code level, preventing human omission or bypass
+
+This guarantees that no unsafe action can reach production.
+
+🧩 System Architecture
+
+Guardian is composed of independent modules, each with a single, well-defined responsibility:
+
+👁️ Observer
+
+Monitors events (logs / alerts — mocked in the MVP)
+
+Detects anomalies and normalizes them into an Anomaly object
+
+🧠 Brain
+
+Analyzes anomalies and generates a root cause hypothesis
+
+Produces a MitigationPlan with explicit commands and risk levels
+
+🧪 Sandbox
+
+Executes proposed actions in an isolated environment
+
+Validates configuration integrity and health checks before reporting
+
+🧑‍💻 Interface
+
+Presents full reasoning and simulation results to the human operator
+
+Requires explicit approval before any production execution
+
+▶️ MVP Execution
+# Install dependencies
 pip install -r requirements.txt
+
+📝 Final Note
+
+Notice: Guardian is intentionally conservative by design.
+It demonstrates a safety-first approach to AI-assisted SRE workflows, focusing on decision quality, traceability, and human-in-the-loop control, rather than full automation.
 
 # Ejecutar el núcleo de Guardian
 python guardian_core/main.py
 ```
+
